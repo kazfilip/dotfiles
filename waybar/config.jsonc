@@ -1,0 +1,54 @@
+{
+  "layer": "top",
+  "position": "top",
+  //"output": "HDMI-A0",
+  "spacing": 5,
+  "modules-left": ["clock"],
+  "modules-center": [],
+  "modules-right": ["network","pulseaudio","battery","custom/power"],
+
+
+
+  "network": {
+	"format": "{essid} ({signalStrength})%  " 
+  },	
+
+  "battery": {
+	"format": "{capacity}% {icon} ",
+	"format-icons": ["","",""]
+  },
+  "clock": {
+  	"format-alt": "{%H:%M}"	
+  },
+  "pulseaudio": {
+  	"format": "{icon}   {volume}% ",
+    	"format-muted": "<span color='#FF4040'> 󰖁 </span> ",
+    	"format-icons": {
+      		"headphone": "<span color='#BF00FF'>  </span>",
+      		"hands-free": "<span color='#BF00FF'>  </span>",
+      		"headset": "<span color='#BF00FF'>  </span>",
+      		"phone": "<span color='#00FFFF'>  </span>",
+      		"portable": "<span color='#00FFFF'>  </span>",
+      		"car": "<span color='#FFA500'>  </span>",
+      "default": [
+        "<span color='#808080'>  </span>",
+        "<span color='#FFFF66'>  </span>",
+        "<span color='#00FF7F'>  </span>"
+      ]
+    },
+    "on-click-right": "pavucontrol -t 3",
+    "on-click": "pactl -- set-sink-mute 0 toggle",
+    "tooltip": true,
+    "tooltip-format": "当前系统声音: {volume}%"
+  },
+  "custom/power": {
+  	"format": " ",
+	"tooltip": "false",
+	"on-click": "shutdown now"
+
+  },
+  "custom/cosmetic":{
+	"format": ""
+  }
+	
+}
